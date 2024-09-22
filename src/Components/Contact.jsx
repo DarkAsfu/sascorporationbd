@@ -1,10 +1,10 @@
-import { Button, Input, Textarea } from "@nextui-org/react";
 import { BiChat } from "react-icons/bi";
 import { FaFacebookF, FaGithub, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { IoLocationOutline } from "react-icons/io5";
 import { LuPhoneCall } from "react-icons/lu";
 import { Link } from "react-router-dom";
 import Title from "./Title";
+import { Button } from "../Ui/moving-border";
 
 
 const Contact = () => {
@@ -69,7 +69,7 @@ const Contact = () => {
             
             <div className="min-h-screen  justify-center bg-white ">
                 <Title title="Contact Us" />
-                <div className="max-w-7xl mx-auto border-2 border-gray-300 rounded-3xl overflow-hidden flex flex-col lg:flex-row mt-10">
+                <div className="max-w-7xl mx-4 md:mx-auto md:border-2 border-gray-300 rounded-3xl overflow-hidden flex flex-col lg:flex-row mt-10">
                     {/* Left Section (Contact Information) */}
                     <div className="lg:w-1/2 p-8 flex flex-col justify-center relative">
                         <div className="flex items-center space-x-3 mb-4">
@@ -118,7 +118,7 @@ const Contact = () => {
                     </div>
 
                     {/* Right Section (Contact Form with Background) */}
-                    <div className="lg:w-1/2 p-8 bg-[#E7E9ED] relative rounded-3xl m-20">
+                    <div className="lg:w-1/2 p-8 bg-[#E7E9ED] relative rounded-3xl  md:m-20">
                         <div className="absolute inset-0 bg-gradient-to-r from-zinc-900/30 to-zinc-900/30 opacity-10 [mask-image:radial-gradient(farthest-side_at_top,white,transparent)] dark:from-zinc-900/30 dark:to-zinc-900/30">
                             <svg
                                 aria-hidden="true"
@@ -147,7 +147,7 @@ const Contact = () => {
                             </svg>
                         </div>
 
-                        <form action="#" method="POST" className="relative space-y-6">
+                        <form className="relative space-y-6">
                             <div>
                                 <label htmlFor="name" className="block text-gray-700">
                                     Full name
@@ -196,12 +196,11 @@ const Contact = () => {
                                 ></textarea>
                             </div>
                             <div>
-                                <button
-                                    type="submit"
-                                    className="w-full py-3 px-6 bg-black text-white rounded-md hover:bg-gray-800"
+                                <Button
+                                    className="w-full py-3 px-6 bg-white border-none text-[#0073E6]  font-semibold text-[16px] hover:bg-[#0073E6] hover:text-white "
                                 >
                                     Submit
-                                </button>
+                                </Button>
                             </div>
                         </form>
                     </div>
