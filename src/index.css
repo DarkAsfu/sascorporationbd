@@ -6,3 +6,28 @@
 body {
     font-family: 'Finlandica', sans-serif;
 }
+
+@keyframes bounce-horizontal {
+    0% {
+        transform: translateX(-40px);
+    }
+
+    50% {
+        transform: translateX(40px);
+        /* Move right 40px */
+    }
+
+    100% {
+        transform: translateX(-40px);
+        /* Return to original position */
+    }
+}
+
+/* Apply infinite bouncing animation */
+.animate-bounce-vertical {
+    animation: bounce-horizontal 3.5s ease-in-out infinite;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color: #0073e6 !important;
+}
