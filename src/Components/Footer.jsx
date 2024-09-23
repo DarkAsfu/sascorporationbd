@@ -2,7 +2,7 @@ import { Image } from "@nextui-org/react";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#F3F8FE] py-4 mt-10">
+    <footer className="bg-[#F3F8FE] py-4">
       <div className="mx-4 my-4 md:mx-auto md:w-10/12 space-y-8 lg:space-y-16 ">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>

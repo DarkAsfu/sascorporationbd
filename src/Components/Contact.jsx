@@ -67,7 +67,7 @@ const Contact = () => {
         // </div>
         <>
             
-            <div className="min-h-screen  justify-center bg-white ">
+            <div className="min-h-screen  justify-center bg-white mb-8">
                 <Title title="Contact Us" />
                 <div className="max-w-7xl mx-4 md:mx-auto md:border-2 border-gray-300 rounded-3xl overflow-hidden flex flex-col lg:flex-row mt-10">
                     {/* Left Section (Contact Information) */}
