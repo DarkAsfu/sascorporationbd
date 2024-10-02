@@ -10,7 +10,7 @@ import axios from 'axios';
 const Review = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/api/testimonials/')
+        axios.get('https://api.sascorporationbd.com/api/testimonials/')
             .then(response => {
                 setReviews(response.data);
             })
@@ -38,9 +38,10 @@ const Review = () => {
                 {reviews.map((review, index) => (
                     <SwiperSlide key={index}>
                         <div className="w-full h-[400px]  flex flex-col items-center justify-center gap-8">
-                            <h1 className="text-[20px] md:text-4xl text-gray-600 leading-relaxed text-center w-4/5">
+                            {/* <h1 className="text-[20px] md:text-4xl text-gray-600 leading-relaxed text-center w-4/5">
                                 {`"${review.message}"`}
-                            </h1>
+                            </h1> */}
+                            <div className="text-[20px] md:text-4xl text-gray-600 leading-relaxed text-center w-4/5" dangerouslySetInnerHTML={{ __html: review.message }}></div>
                             <div className="flex items-center gap-4">
                                 <div className="rounded-full w-12 h-12 bg-black overflow-hidden">
                                     <img src={review.image} />

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const OurSisterConcern = () => {
     const [sisterConcerns, setSisterConcerns] = useState([])
     useEffect(() => {
-        fetch('http://127.0.0.1:8000/api/business_partners/')
+        fetch('https://api.sascorporationbd.com/api/business_partners/')
             .then(response => response.json())
             .then(data => setSisterConcerns(data))
             .catch(error => console.error('Error fetching sister concerns:', error))
@@ -21,7 +21,7 @@ const OurSisterConcern = () => {
                         <img src={concern.image} alt={concern.title} className="w-full h-48 object-cover" />
                         <div className="p-4 flex flex-col flex-grow bg-[#F3F8FE]">
                             <h3 className="text-xl font-semibold mb-2 text-blue-900">{concern.name}</h3>
-                            <p className="text-gray-700 mb-4 flex-grow">{concern.description}</p>
+                            <div className="text-gray-700 mb-4 flex-grow" dangerouslySetInnerHTML={{ __html: concern.description.substring(0, 300) + '...' }}></div>
                             <Button className={`mt-${index % 2 === 0 ? 'auto' : '0'} bg-[#0073E6] text-white max-w-max`} as={Link} to={concern.website_link} target="_blank">Learn More</Button>
                         </div>
                     </div>

@@ -57,8 +57,26 @@ export default function Header() {
     setIsMenuOpen(false); // Close menu after navigation
   };
 
+  const handleServicesNavigation = () => {
+    if (window.location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        const element = document.querySelector("#services");
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      const element = document.querySelector("#services");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    setIsMenuOpen(false); // Close menu after navigation
+  };
+
   return (
-    <Navbar maxWidth="2xl" className="py-2">
+    <Navbar maxWidth="2xl" className="py-2" onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
         {/* Control the toggle with state */}
         <NavbarMenuToggle
@@ -91,6 +109,7 @@ export default function Header() {
                 className="p-0 bg-transparent data-[hover=true]:bg-transparent"
                 radius="sm"
                 variant="light"
+                onClick={() => handleServicesNavigation()}
               >
                 Services
                 <BiChevronDown className="text-xl" />
@@ -106,33 +125,33 @@ export default function Header() {
           >
             <DropdownItem
               key="autoscaling"
-              description="ACME scales apps to meet user demand, automagically, based on load."
+              // description="ACME scales apps to meet user demand, automagically, based on load."
             >
-              Autoscaling
+              Web Application Development
             </DropdownItem>
             <DropdownItem
               key="usage_metrics"
-              description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
+              // description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
             >
-              Usage Metrics
+              Software Development
             </DropdownItem>
             <DropdownItem
               key="production_ready"
-              description="ACME runs on ACME, join us and others serving requests at web scale."
+              // description="ACME runs on ACME, join us and others serving requests at web scale."
             >
-              Production Ready
+              Resort Management
             </DropdownItem>
             <DropdownItem
               key="99_uptime"
-              description="Applications stay on the grid with high availability and high uptime guarantees."
+              // description="Applications stay on the grid with high availability and high uptime guarantees."
             >
-              +99% Uptime
+              Fuel Stations
             </DropdownItem>
             <DropdownItem
               key="supreme_support"
-              description="Overcome any challenge with a supporting team ready to respond."
+              // description="Overcome any challenge with a supporting team ready to respond."
             >
-              +Supreme Support
+              Advertising
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
@@ -160,19 +179,22 @@ export default function Header() {
             <Link
               color="foreground"
               className="w-full pt-10"
-              onClick={() =>
-                item === "Contact"
-                  ? handleContactNavigation()
-                  : handleNavigation(
-                      item === "Home"
-                        ? "/"
-                        : item === "Services"
-                        ? "/services"
-                        : item === "Our Company"
-                        ? "/our-company"
-                        : "#"
-                    )
-              }
+              onClick={() => {
+                if (item === "Contact") {
+                  handleContactNavigation();
+                } else if (item === "Services") {
+                  handleServicesNavigation();
+                } else {
+                  handleNavigation(
+                    item === "Home"
+                      ? "/"
+                      : item === "Our Company"
+                      ? "/our-company"
+                      : "#"
+                  );
+                }
+                setIsMenuOpen(false); // Ensure menu closes after click
+              }}
               size="lg"
             >
               {item}

@@ -4,7 +4,7 @@ import Title from "../Components/Title";
 const OurCompany = () => {
   const [images, setImages] = useState([])
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/sas_gallery/')
+    fetch('https://api.sascorporationbd.com/api/sas_gallery/')
       .then(response => response.json())
       .then(data => setImages(data))
       .catch(error => console.error('Error fetching images:', error))

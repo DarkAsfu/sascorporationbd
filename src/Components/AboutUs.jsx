@@ -5,7 +5,7 @@ import { Button } from "@nextui-org/react";
 const AboutUs = () => {
   const [aboutUs, setAboutUs] = useState([]);
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/about_sas/')
+    fetch('https://api.sascorporationbd.com/api/about_sas/')
       .then(response => response.json())
       .then(data => setAboutUs(data))
       .catch(error => console.error('Error fetching about us:', error))
@@ -24,9 +24,7 @@ const AboutUs = () => {
             />
           </div>
           <div className="text-base md:text-base">
-            <p>
-              <span className="text-[#0073E6] font-semibold">SAS Corporation</span> {aboutUs[lastItem-1]?.description}
-            </p>
+            <div dangerouslySetInnerHTML={{ __html: aboutUs[lastItem-1]?.description }}></div>
             
             <Button className="px-10 py-6 border-2 border-[#0073e634] text-[#0073E6] bg-[#0073e60f] mt-10 font-semibold">Get in touch</Button>
           </div>

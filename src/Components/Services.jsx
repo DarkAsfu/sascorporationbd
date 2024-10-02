@@ -6,7 +6,7 @@ const Services = () => {
   const [services, setServices] = useState([])
   useEffect(() => {
     const fetchServices = async () => {
-      const response = await fetch('http://127.0.0.1:8000/api/services/');
+      const response = await fetch('https://api.sascorporationbd.com/api/services/');
       const data = await response.json();
       setServices(data);
     };
@@ -14,8 +14,8 @@ const Services = () => {
   }, []);
 
   return (
-    <div className="bg-gray-100 py-10">
-      <Title title="Our Services" />
+    <div id="services" className="bg-gray-100 py-10">
+      <Title title={`Our Products & Services`} />
       <div className="gap-4 w-10/12 mx-auto my-10 grid grid-cols-12">
         {services.map((service) => (
           <div
@@ -30,11 +30,12 @@ const Services = () => {
             >
               {service.title}
             </h4>
-            <p
-              className="text-sm font-normal text-gray-500 transition-all duration-500 leading-5"
-            >
-              {service.description}
-            </p>
+              {/* <p
+                className="text-sm font-normal text-gray-500 transition-all duration-500 leading-5"
+              >
+                {service.description}
+              </p> */}
+              <div className="text-sm font-normal text-gray-500 transition-all duration-500 leading-5" dangerouslySetInnerHTML={{ __html: service.description }}></div>
           </div>
         ))}
       </div>
