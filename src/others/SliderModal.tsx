@@ -105,7 +105,7 @@ const SliderModal: React.FC<ImageModalProps> = ({
                 </AnimatePresence>
               )}
 
-              <div className="flex flex-col mt-2 justify-center dark:bg-gray-900/40 bg-gray-100/40 border rounded-md overflow-y-auto h-[40vh] scrollbar-hide">
+              <div className="flex flex-col mt-2 justify-center dark:bg-gray-900/40 bg-gray-100/40 border rounded-md overflow-y-auto h-[60vh] scrollbar-hide">
                 {itemArr?.map((itemData, index) => (
                   <motion.div
                     key={index}
