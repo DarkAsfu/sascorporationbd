@@ -1,7 +1,5 @@
-import { BiChat } from "react-icons/bi";
 import {
   FaFacebookF,
-  FaGithub,
   FaLinkedinIn,
   FaXTwitter,
 } from "react-icons/fa6";

@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Navigation, Autoplay } from 'swiper/modules';
+import { Navigation, Autoplay, Pagination } from 'swiper/modules';
 import { useEffect, useState } from "react";
 
 const OurProjects = () => {
@@ -22,7 +22,16 @@ const OurProjects = () => {
                 slidesPerView={1}
                 spaceBetween={30}
                 loop={true}
-                navigation={true}
+                // navigation={true}
+                pagination={{
+                    clickable: true,
+                    renderBullet: (index, className) => {
+                        return `<span class="${className}" style="background-color: #fff;"></span>`;
+                    },
+                }}
+                // pagination={{
+                //     clickable: true,
+                // }}
                 autoplay={{
                     delay: 2500,
                     disableOnInteraction: false,
@@ -50,10 +59,10 @@ const OurProjects = () => {
                     },
                     1280: {
                         slidesPerView: 4,
-                        spaceBetween: 50,
+                        spaceBetween: 20,
                     },
                 }}
-                modules={[Autoplay, Navigation]}
+                modules={[Autoplay, Navigation, Pagination]}
                 className="mySwiper w-10/12 mx-auto mt-6"
             >
                 {projects.map((project) => (
@@ -79,7 +88,7 @@ const OurProjects = () => {
                             </article>
                             <article className="px-2 py-10 w-full h-[50%] flex flex-col justify-end overflow-hidden absolute bottom-0 rounded-b-md bg-gradient-to-t from-[#000] opacity-100 group-hover:opacity-0 group-hover:-bottom-4 transition-all duration-300">
                                 <h1 className="md:text-2xl font-semibold text-white">{project.project_name}</h1>
-                                <p className="sm:text-base text-sm text-white" dangerouslySetInnerHTML={{ __html: project.description }}></p>
+                                <p className="sm:text-base text-sm text-white" dangerouslySetInnerHTML={{ __html: project.description.length > 100 ? `${project.description.substring(0, 100)}...` : project.description }}></p>
                             </article>
                         </div>
                     </SwiperSlide>

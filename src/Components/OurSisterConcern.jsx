@@ -15,7 +15,7 @@ const OurSisterConcern = () => {
     return (
         <div>
             <Title title="Our Sister Concern" />
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 w-10/12 mx-auto py-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 w-10/12 mx-auto py-10">
                 {sisterConcerns.map((concern, index) => (
                     <div key={concern.id} className="border border-gray-200 rounded-lg overflow-hidden shadow-lg flex flex-col h-full transform transition-transform hover:scale-105 hover:shadow-2xl">
                         <img src={concern.image} alt={concern.title} className="w-full h-48 object-cover" />

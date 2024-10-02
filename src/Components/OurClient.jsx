@@ -16,7 +16,7 @@ const OurClient = () => {
 
     return (
         <div className="bg-[#F3F4F6] pb-20 mt-10">
-            <div className=" w-6/12 mx-auto">
+            <div className="w-full md:w-6/12 mx-auto">
             <Title title={"Our Clients"} />
             <div className="w-full text-5xl py-8 inline-flex  overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)] ">
                 <ul className="flex items-center justify-center md:justify-start sm:[&_li]:mx-8 [&_li]:mx-4 [&_img]:max-w-none animate-infinite-scroll">
