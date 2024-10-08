@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import Title from "../Components/Title"
 import SliderModal from "../others/SliderModal"
 import OurTeam from "../Components/OurTeam"
+import OurItSection from "../Components/OurItSection"
 
 
 const OurCompany = () => {
@@ -26,15 +27,16 @@ const OurCompany = () => {
               <h1 className="text-5xl font-bold">Our Company</h1>
             </div>
           </div>
+          <OurItSection />
           <Title title="Our Gallery" />
-          <div className="columns-2 md:columns-4 w-10/12 mx-auto mt-6">
+          <div className="columns-2 md:columns-3 w-10/12 mx-auto mt-6">
             {images.map((item, index) => (
               <SliderModal key={index} item={item} itemArr={images} uniqueId={`id-${index}`} />
             ))}
           </div>
         </div>
       </div>
-      <OurTeam/>
+      <OurTeam />
     </>
   )
 }
